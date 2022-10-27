@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import BlogList from "./Components/blogList";
+
 
 const sampleBlogs = [
   {
@@ -41,26 +43,6 @@ const sampleBlogs = [
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
 
-const BlogList = (props) => {
-  const { blogs } = props;
-  return (
-    <div>
-      {blogs.map((blog, index) => {
-        return <BlogListCard blog={blog} key={index} />
-      })}
-    </div>
-  )
-}
-
-const BlogListCard = (props) => {
-  return (
-    <div>
-      <h2>{props.blog.title}</h2>
-      <p>Author: {props.blog.author}</p>
-      <p>{props.blog.text}</p>
-    </div>
-  )
-}
 
 
 const App = () => {
@@ -72,9 +54,8 @@ const App = () => {
       const result = await fetch(
         `${urlEndpoint}/blogs`
       );
-      const blogs = await result.json();
-      console.log(blogs)
-      setBlogs(blogs)
+      const fetchedBlogs = await result.json();
+      setBlogs(fetchedBlogs)
     }
     fetchBlogs();
   }, [])
