@@ -15,7 +15,7 @@ const OptionBar = (props) => {
 
   return (
     <div>
-      <label> Limit: </label>
+      <label className="label">Limit:</label>
       <input 
         type="number" 
         value={limit}
@@ -24,7 +24,7 @@ const OptionBar = (props) => {
         }}
       ></input>
       {/* <br/> */}
-      <label> Page: </label>
+      <label className="label">Page:</label>
       <input 
         type="number" 
         value={page}
@@ -33,7 +33,7 @@ const OptionBar = (props) => {
         }}
       ></input>
       {/* <br/> */}
-      <label> Sort By: </label>
+      <label className="label">Sort By:</label>
       <select onChange={(e) => {
           setSortBy(e.target.value)
       }}>
@@ -43,7 +43,7 @@ const OptionBar = (props) => {
         <option value="createdAt">Created At</option>
       </select>
       {/* <br/> */}
-      <label> Order: </label>
+      <label className="label">Order:</label>
       <select onChange={(e) => {
           setOrder(e.target.value)
         }}>
